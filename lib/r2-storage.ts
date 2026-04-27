@@ -1,5 +1,7 @@
 // Cloudflare R2 file storage
+// @ts-ignore
 interface Env {
+  // @ts-ignore
   MOD_BUCKET: R2Bucket;
 }
 
