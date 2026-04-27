@@ -1,6 +1,9 @@
 // Cloudflare D1 database layer
+// @ts-ignore
 interface Env {
+  // @ts-ignore
   DB: D1Database;
+  // @ts-ignore
   MOD_BUCKET: R2Bucket;
 }
 
