@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+// @ts-ignore
 import bcrypt from 'bcrypt';
 import { cookies } from 'next/headers';
 
