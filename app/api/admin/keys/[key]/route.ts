@@ -23,7 +23,7 @@ async function verifyAdmin(): Promise<boolean> {
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { key: string } }
+  { params }: { params: Promise<{ key: string }> }
 ) {
   const isAdmin = await verifyAdmin();
   if (!isAdmin) {
@@ -33,7 +33,7 @@ export async function PATCH(
   try {
     const body = await request.json();
     const { isActive } = body;
-    const key = params.key;
+    const { key } = await params;
 
     if (typeof isActive !== 'boolean') {
       return NextResponse.json({ error: 'isActive must be a boolean' }, { status: 400 });
@@ -52,7 +52,7 @@ export async function PATCH(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { key: string } }
+  { params }: { params: Promise<{ key: string }> }
 ) {
   const isAdmin = await verifyAdmin();
   if (!isAdmin) {
@@ -60,7 +60,7 @@ export async function DELETE(
   }
 
   try {
-    const key = params.key;
+    const { key } = await params;
     deleteKey(key);
 
     return NextResponse.json({ success: true, message: 'Key deleted' }, { status: 200 });
