@@ -71,7 +71,7 @@ export function getAllKeys() {
 
 export function getKeyById(key: string) {
   const stmt = db.prepare('SELECT * FROM keys WHERE key = ? LIMIT 1');
-  return stmt.get(key) as { id: number; key: string; is_active: number; created_at: string; label?: string } | undefined;
+  return stmt.get(key) as { id: number; key: string; is_active: number; created_at: string; expires_at?: string; label?: string } | undefined;
 }
 
 export function createKey(key: string, label?: string) {
