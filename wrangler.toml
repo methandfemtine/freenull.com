@@ -1,0 +1,24 @@
+name = "mod-sales"
+type = "javascript"
+pages_build_output_dir = ".next"
+
+# Your Cloudflare Account ID (get from: wrangler whoami)
+account_id = ""
+
+[[d1_databases]]
+binding = "DB"
+database_name = "mod_sales"
+database_id = ""  # Create with: wrangler d1 create mod-sales
+
+[[r2_buckets]]
+binding = "MOD_BUCKET"
+bucket_name = "mod-sales-files"  # Create with: wrangler r2 bucket create mod-sales-files
+
+[env.production]
+routes = [
+  { pattern = "freenull.com", zone_name = "freenull.com" },
+  { pattern = "*.freenull.com", zone_name = "freenull.com" }
+]
+
+[build]
+command = "npm run build:cloudflare"
