@@ -2,17 +2,12 @@ name = "mod-sales"
 type = "javascript"
 pages_build_output_dir = ".next"
 
-# Your Cloudflare Account ID (get from: wrangler whoami)
-account_id = ""
+account_id = "e816fe66309b031e719021172de64028"
 
 [[d1_databases]]
 binding = "DB"
 database_name = "mod_sales"
-database_id = ""  # Create with: wrangler d1 create mod-sales
-
-[[r2_buckets]]
-binding = "MOD_BUCKET"
-bucket_name = "mod-sales-files"  # Create with: wrangler r2 bucket create mod-sales-files
+database_id = "2965d474-14dc-4f0e-840a-e38918ea668a"
 
 [env.production]
 routes = [
