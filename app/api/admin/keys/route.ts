@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getAllKeys, createKey } from '@/lib/db';
+import { getAllKeys, createKey, createKeyWithExpiry } from '@/lib/db';
 import { generateLicenseKey, generateMultipleKeys } from '@/lib/keys';
 import { cookies } from 'next/headers';
 import jwt from 'jsonwebtoken';
